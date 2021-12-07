@@ -1,0 +1,28 @@
+{
+  "name": "useinput",
+  "version": "1.0.0",
+  "description": "hook can make limit in input ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weightsforfun/simple-react-hooks.git"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "input"
+  ],
+  "author": "weightsforfun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weightsforfun/simple-react-hooks/issues"
+  },
+  "homepage": "https://github.com/weightsforfun/simple-react-hooks#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

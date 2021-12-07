@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 export const useNetwork = (onHandle) => {
   const [status, setStatus] = useState(window.navigator.onLine);
   const handleChange = () => {
