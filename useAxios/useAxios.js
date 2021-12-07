@@ -1,10 +1,24 @@
-const useAxios = (opts, axiosInstance = defaultAxios) => {
+import { useState, useEffect } from "react";
+export const useAxios = (opts, axiosInstance = defaultAxios) => {
   const [state, setState] = useState({
     loading: true,
     error: null,
     data: null,
   });
   const [trigger, setTrigger] = useState(0);
+  useEffect(() => {
+    axiosInstance(opts)
+      .then((data) => {
+        setState({
+          ...state,
+          loading: false,
+          data,
+        });
+      })
+      .catch((error) => {
+        setState({ ...state, loading: false, error });
+      });
+  }, [trigger]);
   if (!opts) {
     return;
   }
@@ -15,18 +29,6 @@ const useAxios = (opts, axiosInstance = defaultAxios) => {
     });
     setTrigger(Date.now());
   };
-  useEffect(() => {
-    axiosInstance(opts)
-      .then((data) => {
-        setState({ ...state, loading: false, data });
-      })
-      .catch((error) => {
-        setState({
-          ...state,
-          loading: false,
-          error,
-        });
-      });
-  }, [trigger]);
+
   return { ...state, refetch };
 };
